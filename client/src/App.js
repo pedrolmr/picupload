@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 import UsersList from './components/UsersList';
+import UserPage from './components/UserPage';
 
 class App extends Component {
   constructor(props){
@@ -24,7 +26,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <UsersList users={this.state.users} />
+        <Route exact path="/" render={props => <UsersList {...props} users={this.state.users}/>} />
+        <Route exact path="/user/:id" render={props => <UserPage {...props} users={this.state.users} />}/>
       </div>
     );
   }
