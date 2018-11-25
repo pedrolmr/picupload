@@ -1,10 +1,10 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('comments').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
+      return knex('comments').insert([
         {
           content: 'Why did you do it??',
           post_id: 1
