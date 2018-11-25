@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
       post.string('title', 120)
       post.text('image')
       post.text('description')
+      post.timestamps(true, true)
 
       post
       .integer('user_id')
