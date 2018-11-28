@@ -10,6 +10,7 @@ const UsersList = props => {
                         user={user}
                         name={user.name} 
                         description={user.description} 
+                        posts={props.posts}
                     />
                 );
             })}

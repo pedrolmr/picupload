@@ -8,6 +8,8 @@ const User = (props) => {
                 <Link to={`/user/${props.user.id}`}>{props.name}</Link>
             </h3>
             <p>{props.description}</p> 
+
+            
         </div>
     );
 }

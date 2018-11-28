@@ -35,6 +35,16 @@ server.get('/api/users/:id', (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
+server.get('/api/posts', (req, res) => {
+    db('posts')
+        .then(post => {
+            res.status(200).json(post)
+        })
+        .catch(err => {
+            res.status(500).json(err)
+        })
+})
+
 server.get('/api/posts/:id', (req, res) => {
     const id = req.params.id;
     db('posts').where({ id }).first()
@@ -51,6 +61,16 @@ server.get('/api/posts/:id', (req, res) => {
         })
         .catch(err => res.status(500).json(err));
 });
+
+server.get('/api/comments', (req, res) => {
+    db('comments')
+        .then(comment => {
+            res.status(200).json(comment)
+        })
+        .catch(err => {
+            res.status(500).json(err)
+        })
+})
 
 const port = 8000;
 server.listen(port, () => console.log(`running on port: ${port}`))

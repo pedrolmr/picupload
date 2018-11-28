@@ -1,27 +1,27 @@
 import React from 'react'
 import Post from './Post'
 
-class UserPage extends React.Component {
+class PostPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            user: {}
+            post: {}
         }
     }
 
     componentDidMount() {
-        const userId = this.props.match.params.id;
+        const postId = this.props.match.params.id;
         this.setState({
-            user: this.props.users.find(user => `${user.id}` === userId)
+            post: this.props.posts.find(post => `${post.user_id}` === postId)
         });
     }
 
     render() {
         return (
             <div className="user-page">
-            <h1>{this.state.user.name}'s Posts</h1>
+                
                 {this.props.posts.map(post => {
-                    return this.state.user.id === post.user_id ? <Post post={post} name={this.props.name}/> : null
+                    return this.state.post.id === post.user_id ? 'post comments' : null
                 })}
             </div>
         )
@@ -29,4 +29,4 @@ class UserPage extends React.Component {
 }
 
 
-export default UserPage;
+export default PostPage;
